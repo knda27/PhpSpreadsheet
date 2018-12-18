@@ -381,6 +381,7 @@ class Csv extends BaseReader
                     if ($this->inputEncoding !== 'UTF-8') {
                         $rowDatum = StringHelper::convertEncoding($rowDatum, 'UTF-8', $this->inputEncoding);
                     }
+                    $rowDatum = utf8_encode($rowDatum);
 
                     // Set cell value
                     $sheet->getCell($columnLetter . $currentRow)->setValueExplicit($rowDatum, DataType::TYPE_STRING);
